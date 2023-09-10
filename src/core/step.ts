@@ -1,4 +1,4 @@
-import { Command } from "src/command/command";
+import { Command } from "src/command/command.interface";
 import { FlowBuilder } from "./flow";
 import {
   ParticipantInvocation,

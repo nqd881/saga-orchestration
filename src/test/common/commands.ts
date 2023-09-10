@@ -1,4 +1,4 @@
-import { Command } from "src/command/command";
+import { Command } from "src/command/command.interface";
 
 export class CommandBase implements Command {
   getCommandType(): string {

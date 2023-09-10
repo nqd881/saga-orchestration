@@ -1,4 +1,4 @@
-import { Command } from "src/command/command";
+import { Command } from "src/command/command.interface";
 import { ExecutionState } from "./execution-state";
 import { ParticipantInvoker } from "./participant-invocation";
 
