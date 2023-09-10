@@ -1,7 +1,3 @@
-import { Flow } from "#core/flow";
-import { ParticipantCommandBuilder } from "#core/participant-command";
-import { Saga } from "#core/saga";
-import { Command } from "#command/command.interface";
 import {
   CreateAccountCommand,
   CreateUserCommand,
@@ -11,6 +7,7 @@ import {
 } from "./commands";
 import { CreateAccountReply, CreateUserReply } from "./reply";
 import { Channels } from "./channels";
+import { Command, Flow, ParticipantCommandBuilder, Saga } from "../../src";
 
 export interface AccountDetails {
   accountId: string;

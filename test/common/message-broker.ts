@@ -1,11 +1,7 @@
 import { EventEmitter } from "events";
 import DeferredCtor from "promise-deferred";
 import { generate } from "randomstring";
-import {
-  CommandMessage,
-  CommandMessageWithReplyChannel,
-} from "#messaging/command-message";
-import { ReplyMessage } from "#messaging/reply-message";
+import { CommandMessage, CommandMessageWithReplyChannel, ReplyMessage } from "../../src";
 
 export class MessageBroker extends EventEmitter {
   async send(channel: string, message: CommandMessage) {

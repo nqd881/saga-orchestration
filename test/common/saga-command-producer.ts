@@ -1,11 +1,15 @@
-import { Orchestrator } from "#core/orchestrator";
-import { ParticipantCommand } from "#core/participant-command";
-import { SagaRef } from "#core/saga-ref";
-import { CommandMessage } from "#messaging/command-message";
+import {
+  CommandMessage,
+  ISagaCommandProducer,
+  Orchestrator,
+  ParticipantCommand,
+  ParticipantReply,
+  ParticipantReplyStatus,
+  ReplyMessage,
+  ReplyMessageOutcome,
+  SagaRef,
+} from "../../src";
 import { MessageBroker } from "./message-broker";
-import { ParticipantReply, ParticipantReplyStatus } from "#core/participant-reply";
-import { ReplyMessage, ReplyMessageOutcome } from "#messaging/reply-message";
-import { ISagaCommandProducer } from "#core/interfaces/saga-command-producer.interface";
 
 export class SagaCommandProducer implements ISagaCommandProducer {
   constructor(private broker: MessageBroker) {}

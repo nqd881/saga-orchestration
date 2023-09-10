@@ -1,5 +1,4 @@
-import { Orchestrator } from "#core/orchestrator";
-import { SagaStore } from "#core/saga-store";
+import { Orchestrator, SagaStore } from "../../src";
 import { InMemorySagaInstanceRepo } from "./in-memory-saga-instance-repo";
 import { MessageBroker } from "./message-broker";
 import { RegisterSaga, RegisterSagaData, RegisterSagaInput } from "./register-saga";

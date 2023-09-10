@@ -5,7 +5,7 @@ export enum ReplyMessageOutcome {
   Failure = "failure",
 }
 
-export interface ReplyMessageHeaders {
+export interface ReplyMessageHeaders extends MessageHeaders {
   replyOutcome: ReplyMessageOutcome;
   replyType?: string;
 }

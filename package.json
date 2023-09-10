@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "npx ts-node -r tsconfig-paths/register src/test/common/index.ts"
+    "test": "npx ts-node -r tsconfig-paths/register test/common/index.ts"
   },
   "keywords": [
     "saga",

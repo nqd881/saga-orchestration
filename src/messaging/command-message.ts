@@ -1,7 +1,7 @@
 import { Command } from "#command/command.interface";
 import { Message, MessageBody, MessageHeaders } from "./message";
 
-export interface CommandMessageHeaders {
+export interface CommandMessageHeaders extends MessageHeaders {
   commandType: string;
 }
 

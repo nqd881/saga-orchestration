@@ -1,10 +1,7 @@
 import { generate } from "randomstring";
 import { v4 } from "uuid";
 import { MessageBroker } from "./message-broker";
-import {
-  CommandMessage,
-  CommandMessageWithReplyChannel,
-} from "#messaging/command-message";
+
 import {
   CreateAccountCommand,
   CreateUserCommand,
@@ -12,9 +9,13 @@ import {
   DeleteUserCommand,
   LinkUserToAccountCommand,
 } from "./commands";
-import { ReplyMessage, ReplyMessageOutcome } from "#messaging/reply-message";
 import { CreateAccountReply, CreateUserReply } from "./reply";
 import { Channels } from "./channels";
+import {
+  CommandMessageWithReplyChannel,
+  ReplyMessage,
+  ReplyMessageOutcome,
+} from "../../src";
 
 export class Account {
   public id: string;

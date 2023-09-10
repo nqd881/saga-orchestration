@@ -1,7 +1,5 @@
-import { ISagaInstanceRepo } from "#core/interfaces/saga-instance-repo.interface";
-import { SagaInstance } from "#core/saga-instance";
-import { Nullable } from "#utils/types";
 import { Promisable } from "type-fest";
+import { ISagaInstanceRepo, Nullable, SagaInstance } from "../../src";
 
 export class InMemorySagaInstanceRepo implements ISagaInstanceRepo {
   records: Map<string, SagaInstance<any>>;
