@@ -1,4 +1,4 @@
-import { Command } from "src/command/command.interface";
+import { Command } from "#command/command.interface";
 import { Message, MessageBody, MessageHeaders } from "./message";
 
 export interface CommandMessageHeaders {

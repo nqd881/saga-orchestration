@@ -1,4 +1,4 @@
-import { Command } from "src/command/command.interface";
+import { Command } from "#command/command.interface";
 import { ParticipantCommand } from "./participant-command";
 
 export type ParticipantInvoker<Data, C extends Command = Command> = (

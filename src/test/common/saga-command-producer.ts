@@ -1,10 +1,10 @@
 import { Orchestrator } from "#core/orchestrator";
 import { ParticipantCommand } from "#core/participant-command";
 import { SagaRef } from "#core/saga-ref";
-import { CommandMessage } from "src/messaging/command-message";
+import { CommandMessage } from "#messaging/command-message";
 import { MessageBroker } from "./message-broker";
 import { ParticipantReply, ParticipantReplyStatus } from "#core/participant-reply";
-import { ReplyMessage, ReplyMessageOutcome } from "src/messaging/reply-message";
+import { ReplyMessage, ReplyMessageOutcome } from "#messaging/reply-message";
 import { ISagaCommandProducer } from "#core/interfaces/saga-command-producer.interface";
 
 export class SagaCommandProducer implements ISagaCommandProducer {

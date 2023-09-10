@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "npx ts-node -r tsconfig-paths/register src/test/common/index.ts"
   },
   "keywords": [],

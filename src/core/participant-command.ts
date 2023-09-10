@@ -1,4 +1,4 @@
-import { Command } from "src/command/command.interface";
+import { Command } from "#command/command.interface";
 
 export class ParticipantCommand<C extends Command = Command> {
   readonly participant: string;

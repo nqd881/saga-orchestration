@@ -1,7 +1,7 @@
 import { Flow } from "#core/flow";
 import { ParticipantCommandBuilder } from "#core/participant-command";
 import { Saga } from "#core/saga";
-import { Command } from "src/command/command.interface";
+import { Command } from "#command/command.interface";
 import {
   CreateAccountCommand,
   CreateUserCommand,

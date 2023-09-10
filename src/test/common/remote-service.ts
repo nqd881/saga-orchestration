@@ -4,7 +4,7 @@ import { MessageBroker } from "./message-broker";
 import {
   CommandMessage,
   CommandMessageWithReplyChannel,
-} from "src/messaging/command-message";
+} from "#messaging/command-message";
 import {
   CreateAccountCommand,
   CreateUserCommand,
@@ -12,7 +12,7 @@ import {
   DeleteUserCommand,
   LinkUserToAccountCommand,
 } from "./commands";
-import { ReplyMessage, ReplyMessageOutcome } from "src/messaging/reply-message";
+import { ReplyMessage, ReplyMessageOutcome } from "#messaging/reply-message";
 import { CreateAccountReply, CreateUserReply } from "./reply";
 import { Channels } from "./channels";
 

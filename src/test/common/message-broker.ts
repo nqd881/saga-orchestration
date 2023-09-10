@@ -4,8 +4,8 @@ import { generate } from "randomstring";
 import {
   CommandMessage,
   CommandMessageWithReplyChannel,
-} from "src/messaging/command-message";
-import { ReplyMessage } from "src/messaging/reply-message";
+} from "#messaging/command-message";
+import { ReplyMessage } from "#messaging/reply-message";
 
 export class MessageBroker extends EventEmitter {
   async send(channel: string, message: CommandMessage) {
