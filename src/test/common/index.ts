@@ -20,6 +20,8 @@ const registerSaga = new RegisterSaga();
 
 sagaStore.registerSaga(registerSaga);
 
+console.log(registerSaga.flow.steps);
+
 //
 
 const sagaCommandProducer = new SagaCommandProducer(broker);

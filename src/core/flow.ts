@@ -1,10 +1,10 @@
 import { SagaAction } from "./action";
 import { ExecutionState } from "./execution-state";
-import { ParticipantReply, ParticipantReplyStatus } from "./participant-reply";
+import { ParticipantReply } from "./participant-reply";
 import { Step, StepBuilder } from "./step";
 
 export class Flow<Data> {
-  protected readonly steps: Step<Data>[];
+  readonly steps: Step<Data>[];
 
   constructor(steps: Step<Data>[]) {
     this.steps = steps;
@@ -72,8 +72,8 @@ export class Flow<Data> {
     return new FlowBuilder<Data>();
   }
 
-  static stepBuilder<Data>() {
-    return new StepBuilder<Data>(this.builder());
+  static step<Data>(name?: string) {
+    return new StepBuilder<Data>(this.builder()).withName(name);
   }
 }
 

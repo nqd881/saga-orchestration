@@ -75,7 +75,7 @@ export class RegisterSaga extends Saga<RegisterSagaData> {
   }
 
   static getFlow() {
-    return Flow.stepBuilder<RegisterSagaData>()
+    return Flow.step<RegisterSagaData>()
       .invokeParticipant(this.createAccount)
       .onReply(CreateAccountReply.name, this.handleCreateAccountReply)
       .withCompensation(this.deleteAccount)

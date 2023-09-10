@@ -1,4 +1,5 @@
 import { Command } from "#command/command.interface";
+import { generate } from "randomstring";
 import { FlowBuilder } from "./flow";
 import {
   ParticipantInvocation,
@@ -12,13 +13,16 @@ export class Step<
   ActionCommand extends Command = Command,
   CompensationCommand extends Command = Command,
 > {
+  protected readonly name: string;
   protected readonly action?: ParticipantInvocation<Data, ActionCommand>;
   protected readonly compensation?: ParticipantInvocation<Data, CompensationCommand>;
 
   constructor(
+    name: string,
     action?: ParticipantInvocation<Data, ActionCommand>,
     compensation?: ParticipantInvocation<Data, CompensationCommand>,
   ) {
+    this.name = name;
     this.action = action;
     this.compensation = compensation;
   }
@@ -51,6 +55,7 @@ export class StepBuilder<
 > {
   protected flowBuilder: FlowBuilder<Data>;
 
+  protected name: string;
   protected actionInvoker?: ParticipantInvoker<Data, ActionCommand>;
   protected compensationInvoker?: ParticipantInvoker<Data, CompensationCommand>;
   protected actionReplyHandlers: ParticipantReplyHandlersMap<Data>;
@@ -61,6 +66,14 @@ export class StepBuilder<
 
     this.actionReplyHandlers = new ParticipantReplyHandlersMap();
     this.compensationReplyHandlers = new ParticipantReplyHandlersMap();
+  }
+
+  withName(name?: string) {
+    const defaultName = `Step_${generate()}`;
+
+    this.name = name ?? defaultName;
+
+    return this;
   }
 
   invokeParticipant(invoker: ParticipantInvoker<Data, ActionCommand>): this {
@@ -97,7 +110,11 @@ export class StepBuilder<
         )
       : undefined;
 
-    return new Step<Data, ActionCommand, CompensationCommand>(action, compensation);
+    return new Step<Data, ActionCommand, CompensationCommand>(
+      this.name,
+      action,
+      compensation,
+    );
   }
 
   private addStepToFlowBulider() {
@@ -106,10 +123,10 @@ export class StepBuilder<
     this.flowBuilder.addStep(step);
   }
 
-  step() {
+  step(name?: string) {
     this.addStepToFlowBulider();
 
-    return new StepBuilder(this.flowBuilder);
+    return new StepBuilder(this.flowBuilder).withName(name);
   }
 
   buildFlow() {
