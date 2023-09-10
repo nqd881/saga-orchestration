@@ -27,6 +27,10 @@ export class Step<
     this.compensation = compensation;
   }
 
+  getName() {
+    return this.name;
+  }
+
   hasAction() {
     return Boolean(this.action);
   }
