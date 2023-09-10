@@ -59,7 +59,7 @@ export class StepBuilder<
 > {
   protected flowBuilder: FlowBuilder<Data>;
 
-  protected name: string;
+  protected name?: string;
   protected actionInvoker?: ParticipantInvoker<Data, ActionCommand>;
   protected compensationInvoker?: ParticipantInvoker<Data, CompensationCommand>;
   protected actionReplyHandlers: ParticipantReplyHandlersMap<Data>;
@@ -72,10 +72,12 @@ export class StepBuilder<
     this.compensationReplyHandlers = new ParticipantReplyHandlersMap();
   }
 
-  withName(name?: string) {
-    const defaultName = `Step_${generate()}`;
+  private static generateStepName() {
+    return `Step_${generate()}`;
+  }
 
-    this.name = name ?? defaultName;
+  withName(name?: string) {
+    this.name = name;
 
     return this;
   }
@@ -103,6 +105,8 @@ export class StepBuilder<
   }
 
   buildStep() {
+    const name = this.name || StepBuilder.generateStepName();
+
     const action = this.actionInvoker
       ? new ParticipantInvocation(this.actionInvoker, this.actionReplyHandlers)
       : undefined;
@@ -114,11 +118,7 @@ export class StepBuilder<
         )
       : undefined;
 
-    return new Step<Data, ActionCommand, CompensationCommand>(
-      this.name,
-      action,
-      compensation,
-    );
+    return new Step<Data, ActionCommand, CompensationCommand>(name, action, compensation);
   }
 
   private addStepToFlowBulider() {
